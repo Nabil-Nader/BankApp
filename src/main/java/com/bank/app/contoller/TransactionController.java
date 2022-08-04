@@ -20,7 +20,7 @@ public class TransactionController {
     private final TransactionService transactionService ;
 
     @PostMapping("/{accountNumber}")
-    public List<Transaction> findTransactionByAccountNumber(@PathVariable String accountNumber ){
+    public List<Transaction> findTransactionByAccountNumber(@PathVariable Long accountNumber ){
 
         return transactionService.findAllByAccountNumber(accountNumber);
 
