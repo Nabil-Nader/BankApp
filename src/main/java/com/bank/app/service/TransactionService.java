@@ -11,29 +11,19 @@ import java.util.List;
 @Service
 public class TransactionService {
 
-    public List<Transaction> findAllByAccountNumber(){
-        Transaction t1 = new Transaction("Type1",
-                LocalDateTime.now(),
-                BigDecimal.valueOf(20),
-                "12345",
-                BigDecimal.valueOf(2),
-                "m1",
-                "log1");
+    public List<Transaction> findAllByAccountNumber(Long accountNumber){
 
-
-        Transaction t2 = new Transaction("Type2",
-                LocalDateTime.now(),
-                BigDecimal.valueOf(30),
-                "12345678",
-                BigDecimal.valueOf(2),
-                "m2",
-                "log2");
-
-        List<Transaction> transactionList = new ArrayList<>();
-        transactionList.add(t1);
-        transactionList.add(t2);
-
-
-        return  transactionList ;
+        return List.of(
+                Transaction
+                        .builder()
+                        .type("Credit")
+                        .date(LocalDateTime.now())
+                        .accountNumber(accountNumber)
+                        .currency("EG")
+                        .amount(BigDecimal.valueOf(100.00))
+                        .merchantName("Kiwe")
+                        .merchantLogo("images/kiwe-logo.png")
+                        .build()
+        );
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController("/transactions")
 
 @AllArgsConstructor
@@ -18,9 +20,9 @@ public class TransactionController {
     private final TransactionService transactionService ;
 
     @PostMapping("/{accountNumber}")
-    public ResponseEntity<Transaction> findTransactionByAccountNumber(@PathVariable String accountNumber ){
+    public List<Transaction> findTransactionByAccountNumber(@PathVariable String accountNumber ){
 
-        return new ResponseEntity<>(new Transaction(), HttpStatus.OK);
+        return transactionService.findAllByAccountNumber(accountNumber);
 
     }
 
