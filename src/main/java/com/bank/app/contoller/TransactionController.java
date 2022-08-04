@@ -6,12 +6,13 @@ import com.bank.app.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/transactions")
-
+@RestController()
+@RequestMapping("/transactions")
 @AllArgsConstructor
 public class TransactionController {
 
