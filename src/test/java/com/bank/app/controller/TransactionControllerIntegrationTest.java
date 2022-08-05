@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TransactionControllerIntegrationTest {
+class TransactionControllerIntegrationTest {
 
 
     //this will allow me to call URL , that will call the action of controller
@@ -23,7 +23,7 @@ public class TransactionControllerIntegrationTest {
     @Test
     public void  getTransactionByAccountTest() throws Exception {
         mockMvc.perform(
-                get("transactions/{accountNumber}",1))
+                get("/transactions/{accountNumber}",1))
                 .andExpect(status().isOk());
 
 
