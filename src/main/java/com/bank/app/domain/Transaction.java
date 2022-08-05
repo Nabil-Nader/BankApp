@@ -1,16 +1,12 @@
 package com.bank.app.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 public class Transaction {
 
 //    Create a Transaction class with the fields:
@@ -20,9 +16,9 @@ public class Transaction {
 
     private LocalDateTime date ;
 
-    private BigDecimal currency ;
+    private String currency ;
 
-    private String accountNumber;
+    private Long accountNumber;
 
     private BigDecimal amount ;
 

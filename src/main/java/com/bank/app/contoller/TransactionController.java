@@ -4,23 +4,21 @@ package com.bank.app.contoller;
 import com.bank.app.domain.Transaction;
 import com.bank.app.service.TransactionService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/transactions")
+import java.util.List;
 
+@RestController()
+@RequestMapping("/transactions")
 @AllArgsConstructor
 public class TransactionController {
 
     private final TransactionService transactionService ;
 
-    @PostMapping("/{accountNumber}")
-    public ResponseEntity<Transaction> findTransactionByAccountNumber(@PathVariable String accountNumber ){
+    @GetMapping("/{accountNumber}")
+    public List<Transaction> findTransactionByAccountNumber(@PathVariable Long accountNumber ){
 
-        return new ResponseEntity<>(new Transaction(), HttpStatus.OK);
+        return transactionService.findAllByAccountNumber(accountNumber);
 
     }
 
